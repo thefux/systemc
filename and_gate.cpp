@@ -1,3 +1,7 @@
+// copyright theFux university
+// simulating an AND-GATE using 
+// a changed clock signal.
+
 #include <systemc.h>
 // #include <iostream>
 
