@@ -8,7 +8,7 @@ SC_MODULE(dflipflop) {
   
   sc_in<bool> din1;
   sc_in<bool> din2;
-	sc_in<bool> clock;
+  sc_in<bool> clock;
   sc_out<bool> f;
   // sc_out<bool> dout;
 
