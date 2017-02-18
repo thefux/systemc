@@ -30,7 +30,7 @@ SC_MODULE(dflipflop) {
 SC_MODULE(stimuli) {
 
   sc_in<bool> clock;
-  sc_out<bool> din1;
+  sc_in<bool> din1;
   sc_out<bool> din2;
 
   bool data1;
@@ -40,18 +40,18 @@ SC_MODULE(stimuli) {
   SC_CTOR(stimuli) {
     SC_THREAD(stimgen);
     sensitive << clock.neg();
-    data1 = false;
-    data2 = true;
+    // data1 = false;
+    data2 = false;
   }
 };
 
 void stimuli::stimgen() {
   while(true) {
+    // wait();
     wait();
-    wait();
-    data1 = data2^1;
+    // data1 = data1^1;
+    // din1 = data1;
     data2 = data2^1;
-    din1 = data1;
     din2 = data2;
   }
 
@@ -88,10 +88,11 @@ int sc_main(int argc, char* argv[]) {
   stimuli stim("stimulation");
   display dis("display");
 
-  sc_signal<bool> din1;
+  // sc_clock<bool> din1;
   sc_signal<bool> din2;
   sc_signal<bool> f;
   sc_clock clock("clock", 50, SC_NS, 0.5, 25, SC_NS);
+  sc_clock din1("din1", 100, SC_NS, 0.5,50, SC_NS);
 
 
   dff.din1(din1);
@@ -109,7 +110,7 @@ int sc_main(int argc, char* argv[]) {
   dis.clock(clock);
 
 
-  sc_start(400, SC_NS);
+  sc_start(250, SC_NS);
 
 
   
