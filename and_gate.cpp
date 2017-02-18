@@ -13,18 +13,16 @@ SC_MODULE(dflipflop) {
   // sc_out<bool> dout;
 
 
-
-	void printSum() {
+  void printSum() {
     // dout = din;
     f.write(din1.read() & din2.read());
-	}
+  }
 
-
-	SC_CTOR(dflipflop) {
-		SC_METHOD(printSum);
-		sensitive << clock.pos();
+  SC_CTOR(dflipflop) {
+    SC_METHOD(printSum);
+    sensitive << clock.pos();	
+  }
 	
-	}
 };
 
 SC_MODULE(stimuli) {
