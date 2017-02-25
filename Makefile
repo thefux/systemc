@@ -1,3 +1,6 @@
+GXX = g++
+
+
 all: and_gate.o link
 
 
