@@ -6,7 +6,7 @@
 // #include <iostream>
 
 
-SC_MODULE(dflipflop) {
+SC_MODULE(andGate) {
 	// sc_in< sc_uint<1> > a, b;
 	// sc_out< sc_uint<1> > f;
   
@@ -86,7 +86,7 @@ void display::output() {
 
 int sc_main(int argc, char* argv[]) {
 
-  dflipflop dff("DFliptflop");
+  andGate dff("andGate");
   stimuli stim("stimulation");
   display dis("display");
 
